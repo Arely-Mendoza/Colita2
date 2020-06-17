@@ -1,0 +1,96 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.mycompany.colas;
+import java.util.Scanner;
+/**
+ *
+ * @author are97
+ */
+public class Colitas {
+   int  tope;
+   int max;
+   
+  String nombrecito[];
+    Scanner texto = new Scanner(System.in);
+       
+    public Colitas(int i){
+        max=i;
+        nombrecito= new String[max];
+        tope=0;
+    }
+
+public void agregarcola() {
+     System.out.println("Escribe un nombre: ");
+       String nom = texto.nextLine();
+        if (nom.length () >=4 && nom.length () <=6)
+        {
+        System.out.println("Nombre correcto");
+        nombrecito[tope]=nom;
+        tope++;
+        }else {
+        System.out.println("Nombre incorrecto");
+    }         
+}
+
+public void mostrarcola(){
+    System.out.println("Los nombres son: ");
+  
+     for(int i=0; i<tope; i++){
+        
+{
+    System.out.println("los datos("+i+"):"+ nombrecito[i]);
+}
+           
+        }
+}
+
+public void eliminarcola(){
+
+     tope--;
+    String m=nombrecito[0];
+    for(int i=0; i<tope; i++){
+        nombrecito[i]=nombrecito[i+1];
+    }
+      System.out.println("Nombre eliminado: "+m);
+}
+    
+    public static void main(String[] args) {
+       
+        Scanner teclado= new Scanner (System.in);
+        String nombre;
+        int opt=0;
+        int i=0;
+       
+      System.out.println("ingrese tamaño de la Colita ");
+       i = teclado.nextInt();
+  
+
+ Colitas c=new Colitas(i);
+                                                                                                                                                                                                                          
+ do{
+    
+
+            System.out.println("1-Agregar");
+            System.out.println("2-Mostrar");
+            System.out.println("3-Eliminar");
+   
+            switch(opt=teclado.nextInt()){
+              
+                case 1:
+                   c.agregarcola();
+                    break;
+                case 2:
+                   c.mostrarcola();
+                    break;
+                case 3:
+                   c.eliminarcola();
+                    break;
+               
+            }
+        }while (opt !=4);
+            
+    }
+}
